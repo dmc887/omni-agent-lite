@@ -1,4 +1,5 @@
-from ..models import BaseTool, HTTPClient
+from ..models import BaseTool
+from ..http import HTTPClient
 
 from typing import Dict, Optional, List
 

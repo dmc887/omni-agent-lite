@@ -1,11 +1,11 @@
 from .tool import BaseTool
-from .http import HTTPClient
+from .http import BaseHTTP
 
 from .rag import BaseRAG
 from .doc import Doc
 
 
 __all__ = [
-    "BaseTool", "HTTPClient", "BaseRAG", 
+    "BaseTool", "BaseHTTP", "BaseRAG", 
     "Doc"
 ]

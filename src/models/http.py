@@ -1,10 +1,11 @@
+from abc import ABC, abstractmethod
+
 from httpx import AsyncClient, Response
-from http import HTTPMethod
 
-from typing import Any, Union, Dict
+from typing import Any
 
 
-class HTTPClient:
+class BaseHTTP(ABC):
     def __init__(self, **httpx_kw: Any):
         self._session = None
         self._kw = httpx_kw
@@ -16,22 +17,6 @@ class HTTPClient:
 
         return self._session
 
-    async def request(
-        self,  
-        url: str, 
-        method: HTTPMethod = HTTPMethod.GET,
-        data: Union[str, Dict[Any, Any]] = None,
-        headers: Dict[str, str] = None
-    ) -> Response:
-        if not method in HTTPMethod:
-            raise ValueError("Incorrect HTTP method")
-        
-        req = await self.session.request(
-            method=method,
-            url=url,
-            data=data,
-            headers=headers
-        )
-        req.raise_for_status()
-        
-        return req
+    @abstractmethod
+    async def request(self,  *args: Any, **kwargs: Any) -> Response:
+        ...

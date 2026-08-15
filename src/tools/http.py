@@ -1,6 +1,5 @@
-from ..models import HTTPClient, BaseTool
-
-from http import HTTPMethod
+from ..models import BaseTool
+from ..http import HTTPClient
 
 from typing import Any, Union, Dict
 from httpx import Response
