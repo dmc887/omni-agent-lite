@@ -11,6 +11,8 @@ class NewsTool(BaseTool):
         url: str = "https://news.google.com",
         rss_path: str = "/rss?hl=ru&gl=RU&ceid=RU:ru"
     ):
+        super().__init__()
+        
         self.http = HTTPClient(base_url=url)
         self.rss_path = rss_path
 

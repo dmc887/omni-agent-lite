@@ -14,7 +14,8 @@ class CryptoTool(BaseTool):
         base_url: str = "https://api.binance.com",
         ticker_path: str = "/api/v3/ticker/price"
     ):
-
+        super().__init__()
+        
         self.http = HTTPClient(base_url=base_url)
         self.ticker_path = ticker_path
 
